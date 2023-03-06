@@ -128,7 +128,7 @@ p {
   height: 80vh;
   text-align: center;
   background-color: #000000;
-  /* background: url(../images/clem-onojeghuo-175917.jpg) no-repeat; */
+  background-image: url(../../assets/img/clem-onojeghuo-175917.jpg);
   background-size: cover;
   background-position: top;
   justify-content: space-between;
