@@ -1,23 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, Outlet} from "react-router-dom";
-import Logo from "../../assets/img/logoBurgerDark.jpg";
 
 
 function Template(){
+    const [isActive, setActive] = useState(false)
+
+    const handleToggle = () => {
+        setActive(!isActive);
+    }
 
     return(
         <>
             <header className="flex header">
         <div className="logo">
-            <Link to="pageHome" >
-            <img src={Logo} alt="Logo" />
+            <Link to="/" >
+            <img src='/images/logoBurgerDark.jpg' alt="Logo" />
             </Link>
         </div>
         <div className="button-mobil">
-                <Link to="clicAndCollect" classNameName="callToAction" >Click & Collect</Link>
+                <Link to="clicAndCollect" className="callToAction" >Click & Collect</Link>
                 <Link className="callToAction" href="">Livraison</Link>
         </div>
-        <div className="mobil-menu" id="mobil-menu" data-menu>
+        <div className={"mobil-menu " + (isActive ? 'is-open' : '')} id="mobil-menu" data-menu>
             <ul className="mobil-menu__nav">
                  <li className="mobil-menu__item" >
                    <Link className="mobil-menu__link mobil-menu__link--current "  href="index.html">La Carte</Link>
@@ -32,7 +36,7 @@ function Template(){
                     <Link className="mobil-menu__link" href="#">Actus</Link>
                   </li>
                   <li className="mobil-menu__item">
-                    <Link className="mobil-menu__link" href="#">Réserver</Link>
+                    <Link className="mobil-menu__link">Réserver</Link>
                   </li>
             </ul>
             
@@ -49,11 +53,7 @@ function Template(){
             </ul>
         </div>
         <div className="mobil-header">
-             <button className="menu-button" 
-             type="button" 
-             aria-expanded="false" 
-             aria-controls="mobil-menu"
-             data-menu-button>
+             <button onClick={handleToggle} className={"menu-button " + (isActive ? 'is-open' : '')}>
                <svg width="40" height="40" aria-label="Переключатель мобильного меню">
                    <use className="menu-button__icon-close" href="images/icos.svg#icon-close_40px"></use>
                    <use className="menu-button__icon-menu" href="images/icos.svg#icon-menu"></use>
@@ -106,9 +106,8 @@ function Template(){
                     <li>Actus</li>
                 </ul>
             </div>
-            <div className="footer_list footer_flex">
+            <div className="footer_list">
                <span className="footer_list__text footer_list__title">Où nous trouver ?</span> 
-               {/* <div id="map"></div> */}
                <iframe title="Google Maps" width="300" height="170" id="gmap_canvas" src="https://maps.google.com/maps?q=2880%20Broadway,%20New%20York&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
             </div>
             <div className="footer_list">

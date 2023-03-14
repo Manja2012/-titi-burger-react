@@ -21,7 +21,7 @@ function ClicAndCollect(){
             </div>
             <section className="cta">
                 <div className="cta__background cta__background__clicAndCollect">
-                <Link className="cta__link" href="NosBurgers.html">
+                <Link to="/burger" className="cta__link" >
                     <button className="cta__button">Commencer</button>
                 </Link>
                 </div>
