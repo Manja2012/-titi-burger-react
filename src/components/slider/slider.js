@@ -1,5 +1,9 @@
+import "./slider.min.css"; 
+import "./slider-theme.min.css";
+
 import React from "react";
 import Slider from "react-slick";
+
 import "./style.css"
 
 function Slide (){
