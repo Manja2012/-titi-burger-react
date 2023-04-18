@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { URL} from '../../utils/constantes/urls.js'
 
 function Accompagnement(){
+    
     const [accompagnement, setAccompagnement] = useState([]);
     const [choosedProduct, setChoosedProduct] = useState();
    

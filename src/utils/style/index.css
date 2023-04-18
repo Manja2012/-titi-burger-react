@@ -83,7 +83,9 @@ p {
   display: flex;
   flex-wrap: wrap;
 }
-
+html {
+  scroll-behavior: smooth;
+}
 /* slider */
 .slideshow img {
   height: 200px;

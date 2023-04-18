@@ -4,9 +4,19 @@ import axios from "axios"
 import { useNavigate } from "react-router-dom";
 import Banniere from "../../assets/modele-banniere-medias-sociaux-delicieux-menu-burger-nourriture_106176-354.jpg"
 //URL API
+import { URL} from '../../utils/constantes/urls.js'
 
 function Paiement(){
-   const navigate = useNavigate();
+    const navigate = useNavigate();
+
+    const [total, setTotal] = useState(0);
+    const storage = {... localStorage};
+
+    useEffect(() => {
+
+            setTotal(parseFloat(JSON.parse(storage.burger).price?.$numberDecimal||0) + parseFloat(JSON.parse(storage.accompagnement).price?.$numberDecimal||0) + parseFloat(JSON.parse(storage.boisson).price?.$numberDecimal||0) + parseFloat(JSON.parse(storage.dessert).price?.$numberDecimal||0))
+    },[])
+     
     return(
         <>
             <div className="container">
@@ -25,11 +35,24 @@ function Paiement(){
                         <div className="choise-paiement">
                             <p className="text-left">Paiement</p>
                             <PayPalButton
-                                amount="0.01"
+                                amount= {total}
                                 // shippingPreference="NO_SHIPPING" // default is "GET_FROM_FILE"
                                 onSuccess={(details, data) => {
-                                alert("Transaction completed by " + details.payer.name.given_name);
-                                    navigate('/final')
+                                    fetch(URL.fetchPaiement, {
+                                        method: 'POST',
+                                        body: JSON.stringify(details),
+                                        headers: {
+                                            'Content-type': 'application/json; charset=UTF-8',
+                                        }
+                                    })
+                                    .then(response => {
+                                        console.log(response);
+                                        // redirection
+                                        navigate('/final')
+                                    })
+                                    .catch(error => {
+                                        console.log(error)
+                                    });
                                 }}
                             />
                         </div>

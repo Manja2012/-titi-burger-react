@@ -5,8 +5,9 @@ import { useNavigate } from "react-router-dom";
 import { URL} from '../../utils/constantes/urls.js'
 
 function Burger(){
+    
     const [burger, setBurger] = useState([]);
-    const [choosedProduct, setChoosedProduct] = useState();
+    const [productId, setProductId] = useState();
     const navigate = useNavigate();
 
 
@@ -27,16 +28,16 @@ function Burger(){
       
     },[])
     function handleChange(event) {
-        setChoosedProduct(event.target.value);
+        setProductId(event.target.value);
     }
 
     function formSubmit(event) {
         event.preventDefault();
 
-        if(choosedProduct === undefined){
+        if(productId === undefined){
             return;
         } else{
-            fetch(URL.fetchProduct + choosedProduct).then(res => res.json()).then((data) => {
+            fetch(URL.fetchProduct + productId).then(res => res.json()).then((data) => {
                 localStorage.setItem('burger', JSON.stringify(data));
                 navigate('/accompagnement')
             })
