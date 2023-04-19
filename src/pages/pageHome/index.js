@@ -24,7 +24,7 @@ function Home(){
                     <section className="myBurgers">
                         <div className="myBurgers_burgers">
                             <h2 className="myBurgers_burgers_title">Nos Burgers</h2>
-                            <p className="myBurgers_burgers_text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi harum nisi temporibus autem illo enim sapiente optio sequi exercitationem perferendis fugiat voluptate, repudiandae, nobis et, est placeat tempora unde excepturi?</p>
+                            <p className="myBurgers_burgers_text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi harum nisi temporibus autem illo enim sapiente </p>
                         </div>
                         <div className="myBurgers_diapo">
                             <div className="slideshow">
@@ -44,13 +44,13 @@ function Home(){
                             <article>
                                 <h3 className="actus_articles__title">Article 2</h3>
                                 <img className="actus_articles_img" src='/images/litchi.jpg' alt="boisson aux de litchi" />
-                                <p className="actus_articles_text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laborum earum debitis incidunt esse iusto repellat assumenda ea ipsum odio. Cupiditate inventore numquam nam eos in id hic sint magnam aspernatur.</p>
+                                <p className="actus_articles_text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus ipsum recusandae itaque corporis amet. Necessitatibus fugit facere cupiditate accusamus vero nobis. Cupiditate incidunt repellat, labore nulla minima libero ea ex.</p>
                                 <a className="actus_articles_link" href="">En savoir +</a>
                             </article>
                             <article>
                                 <h3 className="actus_articles__title">Article 3</h3>
                                 <img className="actus_articles_img" src='/images/open.jpg' alt="open" />
-                                <p className="actus_articles_text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti sed vero nulla fugit quidem facilis sapiente pariatur animi maiores architecto est rem ea assumenda tempora dignissimos, iure vitae nostrum corporis?</p>
+                                <p className="actus_articles_text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus ipsum recusandae itaque corporis amet. Necessitatibus fugit facere cupiditate accusamus vero nobis. Cupiditate incidunt repellat, labore nulla minima libero ea ex.</p>
                                 <a className="actus_articles_link" href="">En savoir +</a>
                             </article>
                         </div>

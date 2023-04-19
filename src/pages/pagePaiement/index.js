@@ -1,11 +1,8 @@
 import React, { useState, useEffect } from "react"
-import { PayPalButton } from "react-paypal-button-v2";
-import axios from "axios"
 import { useNavigate } from "react-router-dom";
 import Banniere from "../../assets/modele-banniere-medias-sociaux-delicieux-menu-burger-nourriture_106176-354.jpg"
-//URL API
 import { URL} from '../../utils/constantes/urls.js'
-
+import { PayPalScriptProvider, PayPalButtons } from '@paypal/react-paypal-js'
 function Paiement(){
     const navigate = useNavigate();
 
@@ -34,27 +31,39 @@ function Paiement(){
                     <form action="/action_page.php">
                         <div className="choise-paiement">
                             <p className="text-left">Paiement</p>
-                            <PayPalButton
-                                amount= {total}
-                                // shippingPreference="NO_SHIPPING" // default is "GET_FROM_FILE"
-                                onSuccess={(details, data) => {
-                                    fetch(URL.fetchPaiement, {
-                                        method: 'POST',
-                                        body: JSON.stringify(details),
-                                        headers: {
-                                            'Content-type': 'application/json; charset=UTF-8',
-                                        }
-                                    })
-                                    .then(response => {
-                                        console.log(response);
-                                        // redirection
-                                        navigate('/final')
-                                    })
-                                    .catch(error => {
-                                        console.log(error)
+                            <PayPalScriptProvider options={{"client-id" : 'AWYIF76W1ToMO8jzvEAArqYAQceS7Jr4dMx0bPlX0wiV0sN0qYjtCBne592v41M7CZCwwZ8ExOaskUt-'}}>
+                                <PayPalButtons  createOrder={(data, actions) => {
+                                    return actions.order.create({
+                                        purchase_units: [
+                                            {
+                                                amount: {
+                                                    value:total,
+                                                },
+                                            },
+                                        ],
                                     });
                                 }}
-                            />
+                                onApprove={(data, actions) => {
+                                    return actions.order.capture().then((details) => {
+                                        fetch(URL.fetchPaiement, {
+                                            method: 'POST',
+                                            body: JSON.stringify(details),
+                                            headers: {
+                                                'Content-type': 'application/json; charset=UTF-8',
+                                            }
+                                        })
+                                        .then(response => {
+                                            console.log(response);
+                                            // redirection
+                                            navigate('/final')
+                                        })
+                                        .catch(error => {
+                                            console.log(error)
+                                        });
+                                    });
+                                }}>
+                                </PayPalButtons>
+                            </PayPalScriptProvider>
                         </div>
                     </form>
                     <div className="right-image">

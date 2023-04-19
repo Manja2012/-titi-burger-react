@@ -4,7 +4,7 @@ import "./slider-theme.min.css";
 import React from "react";
 import Slider from "react-slick";
 
-import "./style.css"
+import "./style.scss"
 
 function Slide (){
     const settings = {
@@ -28,13 +28,23 @@ function Slide (){
     }
 
     return(
-        <Slider {...settings}>
-            <img className="myBurgers_photos_img" src='/images/hamburger-gourmet.jpg' alt="menu burger avec coca" />
-            <img className="myBurgers_photos_img" src='/images/hamburger-noir.jpg' alt="burger au boeuf et laitue" />
-            <img className="myBurgers_photos_img" src='/images/hamburger-double.jpg' alt="burger au boeuf et laitue" />
-            <img className="myBurgers_photos_img" src='/images/hamburger-poulet.jpg' alt="burger au boeuf et laitue" />
-            <img className="myBurgers_photos_img" src='/images/hamburger-just-eat.jpg' alt="burger au boeuf et laitue" />
-        </Slider>
+      <Slider {...settings}>
+        <div >
+          <img src='/images/hamburger-gourmet.jpg' alt="menu burger avec coca" />
+        </div>
+        <div >
+            <img src='/images/hamburger-noir.jpg' alt="burger au boeuf et laitue" />
+        </div>
+        <div >
+          <img src='/images/hamburger-double.jpg' alt="burger au boeuf et laitue" />
+        </div>
+        <div >
+          <img src='/images/hamburger-poulet.jpg' alt="burger au boeuf et laitue" />
+        </div>
+        <div >
+          <img src='/images/hamburger-just-eat.jpg' alt="burger au boeuf et laitue" />
+        </div>
+      </Slider>
     )
 }
 export default Slide

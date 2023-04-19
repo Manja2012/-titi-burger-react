@@ -42,15 +42,18 @@ function Boisson(){
     }
     return(
         <>
-            <h1>Nos Boisson 🍹</h1>
+            <h1 className="burger__capture">Nos Boisson 🍹</h1>
             <form onSubmit={formSubmit}>
                 {boisson.map((item, index) => {
                 return(
-                    <div className="burgers"
+                    <div className="burger"
                         key={index}>
                         <input className="burger__input" type="radio" name="burger"  value={item._id} onChange={handleChange}></input>
                         <p className="burger__title">{item.name}</p>
-                        <img className="burger__img burger__img--position" src={item.image} alt={item.name}/>
+                        <div className="burger__position">
+                            <img className="burger__img" src={item.image} alt={item.name}/>
+                        </div>
+                        
                         <p className="price">{item.price.$numberDecimal}€</p>
                         <p className="burger__text">{item.description}</p>
                     </div> 

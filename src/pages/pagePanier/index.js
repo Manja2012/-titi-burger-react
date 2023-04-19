@@ -20,23 +20,31 @@ function Panier(){
   
     return(
         <>
-            <div className="burgers">
-                <img className="burger__img" src={burger.image} alt={burger.name} />
+            <div className="burger">
+                <div className="burger__position">
+                    <img className="burger__img" src={burger.image} alt={burger.name} />
+                </div>  
                 <h2 className="burger__title">{burger.name}</h2>
                 <p className="price">{burger.price?.$numberDecimal}€</p>
             </div>
-            <div className="burgers">
-                <img className="burger__img" src={accompagnement.image} alt={accompagnement.name} />
+            <div className="burger">
+                <div className="burger__position">
+                    <img className="burger__img" src={accompagnement.image} alt={accompagnement.name}/>
+                </div>
                 <h2 className="burger__title">{accompagnement.name}</h2>
                 <p className="price">{accompagnement.price?.$numberDecimal}€</p>
             </div>
-            <div className="burgers">
-                <img className="burger__img" src={boisson.image} alt={boisson.name} />
+            <div className="burger">
+                <div className="burger__position">
+                    <img className="burger__img" src={boisson.image} alt={boisson.name} />
+                </div>
                 <h2 className="burger__title">{boisson.name}</h2>
                 <p className="price">{boisson.price?.$numberDecimal}€</p>
             </div>
-            <div className="burgers">
-                <img className="burger__img" src={dessert.image} alt={dessert.name} />
+            <div className="burger">
+                <div className="burger__position">
+                    <img className="burger__img" src={dessert.image} alt={dessert.name} />
+                </div>
                 <h2 className="burger__title">{dessert.name}</h2>
                 <p className="price">{dessert.price?.$numberDecimal}€</p>
             </div>
